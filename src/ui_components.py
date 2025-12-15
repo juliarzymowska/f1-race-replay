@@ -878,6 +878,16 @@ def extract_race_events(frames: List[dict], track_statuses: List[dict], total_la
         start_frame = int(start_time * fps)
         end_frame = int(end_time * fps) if end_time else start_frame + 250  # Default 10 seconds
         
+        # This prevents rendering artifacts from pre-race track status events
+        # that shouldn't appear on the timeline... Events that span frame 0
+        # (start < 0 but end > 0) are kept; the drawing code will clamp them
+        if end_frame <= 0:
+            continue
+        
+        # Note: The drawing code also clamps, but normalizing here improves data quality
+        if n_frames > 0:
+            end_frame = min(end_frame, n_frames)
+        
         event_type = None
         if status_code == "2":  # Yellow flag
             event_type = RaceProgressBarComponent.EVENT_YELLOW_FLAG
