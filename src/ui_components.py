@@ -796,6 +796,9 @@ class RaceProgressBarComponent(BaseComponent):
         
     def on_mouse_motion(self, window, x: float, y: float, dx: float, dy: float):
         """Handle mouse motion for hover effects."""
+        if not self._visible:
+            return
+            
         self._mouse_x = x
         self._mouse_y = y
         
