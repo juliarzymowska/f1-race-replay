@@ -39,6 +39,35 @@ pip install -r requirements.txt
 
 FastF1 cache folder will be created automatically on first run. If it is not created, you can manually create a folder named `.fastf1-cache` in the project root.
 
+## Environment Setup
+
+To get started with this project locally, you can follow these steps:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/IAmTomShaw/f1-race-replay
+    cd f1-race-replay
+    ```
+2. **Create a Virtual Environment:**
+    This process differs based on your operating system.
+    - On macOS/Linux:
+      ```bash
+      python3 -m venv venv
+      source venv/bin/activate
+      ```
+    - On Windows:
+      ```bash
+      python -m venv venv
+      .\venv\Scripts\activate
+      ```
+3. **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the Application:**
+    You can now run the application using the instructions in the Usage section below.
+
 ## Usage
 
 Run the main script and specify the year and round:
